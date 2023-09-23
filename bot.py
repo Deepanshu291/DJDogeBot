@@ -192,6 +192,7 @@ async def resume(ctx):
 @bot.command()
 async def stop(ctx):
     # shutil.rmtree(path="data")
+    dj.cleanup()
     ctx.voice_client.stop()
     await ctx.send('Stopped')
 
