@@ -157,17 +157,6 @@ async def skip(ctx):
     else:
         await ctx.send("Bot is not currently playing any song to skip.")
 
-
-# @bot.command()
-# async def skip(ctx):
-#     voice_client = ctx.voice_client
-    
-#     if voice_client and voice_client.is_connected() and voice_client.is_playing():
-#             voice_client.stop()
-#             await ctx.send("Skipped the current song.")
-#     elif not dj.song_queue:
-#         voice_client.stop()
-#         await ctx.send("Bot is not currently playing any song to skip.")
     
 @bot.command()
 async def queue(ctx):
