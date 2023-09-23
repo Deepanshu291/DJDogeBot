@@ -97,37 +97,6 @@ async def leave(ctx):
 
 
 
-# @bot.command()
-# async def play(ctx, url):
-#     voice_client = ctx.voice_client
-
-#     if voice_client is None:
-#         channel = ctx.author.voice.channel
-#         await channel.connect()
-
-#     dj.url = url
-
-#     def play_finished(error):
-#         if error:
-#             print(f"Error: {error}")
-
-#         if dj.looping:
-#             play_song()
-#         elif dj.song_queue:
-#             play_song()
-
-#     def play_song():
-#         dj.current = dj.Downloader()
-#         voice_client.play(discord.FFmpegPCMAudio(dj.current), after=play_finished)
-
-#     if voice_client and voice_client.is_connected():
-#         if voice_client.is_playing():
-#             dj.Downloader()
-#         else:
-#             play_song()
-
-
-
 @bot.command()
 async def play(ctx,url):
     voice_client = ctx.voice_client
@@ -136,7 +105,6 @@ async def play(ctx,url):
     if voice_client is None:
         channel = ctx.author.voice.channel
         dj.current =  dj.Downloader()
-        # dj.song_queue.append(dj.current)
         await channel.connect()
 
     print("its connected")
