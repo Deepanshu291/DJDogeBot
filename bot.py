@@ -6,7 +6,6 @@ from pytube import YouTube as yt
 import shutil
 from dotenv import load_dotenv
 
-TOKEN = 'MTEyNDM4NTk1NTk3Mzk2Nzk5Mg.GyG3nb.aicc422lvGflGqaSDOZ1kqZs8LT7pXH0hPcJAg'
 PREFIX = '!'
 load_dotenv()
 intents = discord.Intents.default()
@@ -243,90 +242,3 @@ bot.run(os.getenv("TOKEN"))
 
 
 
-
-# class DJBot:
-#     song_queue=[]
-#     url = ""
-#     looping =False
-#     current = ""
-#     title = []
-#     def __init__(self) -> None:
-#         print("Dj Bot is Started")
-
-#     def cleanup(self):
-#         shutil.rmtree(path="data")
-#         self.song_queue.clear()
-#         self.url = ""
-#         self.looping = False
-#         self.current = ""  
-
-#     def Downloader(self):
-#             ytube =  yt(url=self.url)
-#             self.title.append(ytube.title)
-#             aud = ytube.streams.get_audio_only().download(filename=f"{ytube.title}.mp4",output_path="data")
-#             # queue.append(aud)
-#             # self.song_queue.append(aud)
-#             print(self.song_queue)
-#             return aud
-
-#     def fileh():
-#         if os.path.exists("data"):
-#             shutil.rmtree(path="data")
-#         else:
-#             os.makedirs(name="data")
-
-
-# dj = DJBot()
-
-
-
-
-# @bot.command()
-# async def play(ctx,url):
-#     voice_client = ctx.voice_client   
-#     dj.url = url
-#     # await ctx.invoke(bot.get_command("join"))
-#     if voice_client is None:
-#         channel = ctx.author.voice.channel
-#         dj.current =  dj.Downloader()
-#         await channel.connect()
-#         await ctx.send("Bot joined your voice Channel :)")
-
-#     if voice_client and voice_client.is_connected():
-        
-#         if voice_client.is_playing():
-#             aud = dj.Downloader()
-#             dj.song_queue.append(aud)
-
-#         else:
-#             dj.current = dj.Downloader()
-            
-#             def play_song():
-#                 print(dj.song_queue)
-#                 if dj.looping:
-#                      voice_client.play(discord.FFmpegPCMAudio(dj.current), after=play_finished)
-#                 elif dj.song_queue:         
-#                     current = dj.song_queue.pop(0)
-#                     dj.title.pop(0)
-#                     voice_client.play(discord.FFmpegPCMAudio(current), after=play_finished)
-
-#             def play_finished(error):
-#                 if error:
-#                     print(f"Error: {error}")
-#                 play_song()
-#             voice_client.play(discord.FFmpegPCMAudio(dj.current), after = play_finished)
-
-#     else:
-#         await ctx.invoke(bot.get_command("playone"))
-        
-
-# @bot.command()
-# async def playone(ctx):
-#     voice_client = ctx.voice_client
-#     if voice_client and voice_client.is_connected():
-#         voice_client.play(discord.FFmpegPCMAudio(dj.current))
-#         await ctx.send(f"Here is your Song {dj.title[0]}")
-
- 
-
-# bot.run(os.getenv("TOKEN"))
